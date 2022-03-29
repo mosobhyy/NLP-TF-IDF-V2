@@ -65,7 +65,7 @@ def create_idf(domains_dict):
 
     for word, values in domains_dict.items():
         # Calculate how many docs has the word
-        total_docs_count = len([i for i in values[:total_domains] if i > 0])
+        total_docs_count = np.count_nonzero(values[:total_domains])
 
         domains_dict[word].append(math.log(total_domains / total_docs_count, 10))  # Log of base 10
 
